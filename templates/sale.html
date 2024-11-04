@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sale</title>
+</head>
+<body>
+    <h2>SALE</h2>
+    <form method="POST">
+        <label>Item:</label>
+        <select name="item_id">
+            {% for item in items %}
+                <option value="{{ item.item_id }}">{{ item.item_name }}</option>
+            {% endfor %}
+        </select><br>
+        <label>Quantity:</label>
+        <input type="number" name="qty" required min="1"><br>
+        <label>Rate:</label>
+        <input type="number" name="rate" required step="0.01"><br>
+        <button type="submit">Add Sale</button>
+    </form>
+</body>
+</html>

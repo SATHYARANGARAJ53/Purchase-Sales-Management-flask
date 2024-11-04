@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SOLD ITEMS DETAILS</title>
+        <style>
+            table{
+                
+                margin: 20px auto;
+                background-color: grey;
+                width:80%;
+            }
+            table,tr,th,td{
+                border: 1px solid black;
+                padding:10px;
+                color:aliceblue;
+            }
+            h1{
+                color: blueviolet;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>SOLD ITEMS DETAILS</h1>
+        <table>
+            <thead>
+                <th>Sales_id</th>
+                <th>Timestamp</th>
+                <th>Item_id</th>
+                <th>Quantity</th>
+                <th>Rate</th>
+                <th>Amount</th>
+            </thead>
+            <tbody>
+                {% for items in salestab %}
+                <tr>
+                    <td>{{ items.sales_id }}</td>
+                    <td>{{ items.timestamp }}</td>
+                    <td>{{ items.item_id }}</td>
+                    <td>{{ items.qty }}</td>
+                    <td>{{ items.rate }}</td>
+                    <td>{{ items.amount }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            
+        </table>
+        <form method='POST'>
+            <button>BACK TO HOME</button>
+        </form>
+    </body>
+</html>

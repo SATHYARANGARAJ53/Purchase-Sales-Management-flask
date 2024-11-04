@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>UPDATEITEMS PAGE</title>
+    </head>
+    <body>
+        <h2>UPDATE ITEMS</h2>
+        
+            <form action="{{ url_for('updateitems', id=item.item_id) }}" method="POST">
+                <label>Item Name :</label>
+                <input type="text" name="item_name" value="{{item.item_name}}" required><br>
+                <label>Quantity :</label>
+                <input type="number" name="qty" value="{{item.qty}}" min="0" required><br>
+                <button type="submit">UPDATE</button>
+            </form>
+            
+    </body>
+</html>
