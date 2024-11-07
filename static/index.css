@@ -1,0 +1,103 @@
+.title-bar h3{
+    margin:10px;   
+    text-align: center;
+    color:black;
+    font-family:  Arial, sans-serif;
+}
+
+h1{
+    font-family: Arial, sans-serif;
+    font-size: 25px;
+}
+.title-bar {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Center items vertically */
+    background-color: rgb(238, 235, 235); 
+    color: white; /* Title text color */
+    padding: 10px; /* Padding for the title bar */
+    font-size: 24px; /* Font size for the title */
+    
+}
+
+.btn{
+    margin-left: 85%;
+    display: flex;
+    
+}
+.btnn{
+    padding:10px;
+}
+.button {
+    display: flex;
+    flex-direction: row;
+    gap: 10px; /* Adjust spacing between buttons */
+}
+button {
+    padding: 15px 15px; /* Padding inside buttons */
+    margin-left: 10px; /* Margin between buttons */
+    color: white; /* Button text color */
+    background-color: rgb(196, 47, 47); /* Button background color */
+    border: none; /* Remove button border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Smooth background change */
+}
+button:hover {
+    background-color: red; /* Darker color on hover */
+}
+.align{
+    align-items: center;
+    margin-top: 30px;
+}
+table{
+    width:80%;
+    margin: 20px auto;
+    background-color: rgb(238, 235, 235);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border-collapse: collapse; 
+    
+}
+table tbody{
+    font-size: 18px;
+    color: black;
+}
+table thead {
+    background-color: rgb(196, 47, 47); 
+    color: white;
+}
+table th {
+    padding: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+table,tr,td{
+    border:1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+
+  
+.card {
+    width: 300px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgb(238, 235, 235);
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  .card h1 {
+    font-size: 24px;
+    color: #343a40;
+    margin: 0;
+  }
+
+  .card .balance-amount {
+    font-size: 32px;
+    font-weight: bold;
+    color: #28a745;
+  }

@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Sale</title>
+    <title>Purchase</title>
+    <link rel="stylesheet" href="static/purchase.css">
+    
 </head>
 <body>
-    <h2>SALE</h2>
+    <h1>PURCHASE</h1>
     <form method="POST">
         <label>Item:</label>
         <select name="item_id">
             {% for item in items %}
-                <option value="{{ item.item_id }}">{{ item.item_name }}</option>
+                <option value="{{ item.item_id }}">{{ item.item_name }} ({{item.qty}})</option>
             {% endfor %}
         </select><br>
         <label>Quantity:</label>
         <input type="number" name="qty" required min="1"><br>
         <label>Rate:</label>
         <input type="number" name="rate" required step="0.01"><br>
-        <button type="submit">Add Sale</button>
+        <button type="submit">Purchase</button>
+        <br><br>
+        <button onclick="window.location.href='/'" style="text-decoration: none; color:white ; display: inline-block;">Back</button>
     </form>
 </body>
 </html>

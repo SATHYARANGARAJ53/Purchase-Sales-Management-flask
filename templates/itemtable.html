@@ -1,0 +1,56 @@
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <title>ITEMS</title>
+        <style>
+           
+            table{
+                width:80%;
+                margin: 20px auto;
+                background-color: grey;
+                
+            }
+            table,th,tr,td{
+                border:1px solid black;
+                padding: 10px;
+                text-align: center;
+                color:aliceblue
+            }
+            button{
+                color: blue;
+            }
+        </style>
+        
+    </head>
+    <body>
+        <h1>ITEMS</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ITEM_ID</th>
+                    <th>ITEM_NAME</th>
+                    <th>QUANTITY</th>
+                    <th>ACTIONS</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td>{{ item.item_id }}</td>
+                    <td>{{ item.item_name }}</td>
+                    <td>{{ item.qty }}</td>
+                    <td>
+                        <form action="{{ url_for('updateitems', id=item.item_id) }}" >
+                            <button type="submit">UPDATE</button>
+                        </form>
+                        
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <form method='POST'>
+            <button>BACK TO HOME</button>
+        </form>
+    </body>
+</html> -->

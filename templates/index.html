@@ -2,72 +2,70 @@
 <html>
     <head>
         <title>NAMMA KADAI</title>
-        <style>
-            h1{
-                color:blueviolet;
-                text-align: center;
-            }
-            table{
-                width:80%;
-                margin: 20px auto;
-                background-color: grey;
-                
-            }
-            table,th,tr,td{
-                border:1px solid black;
-                padding: 10px;
-                text-align: center;
-                color:aliceblue
-            }
-            button{
-                color: blue;
-            }
-        </style>
+        <link rel="stylesheet" href="static/index.css">
+        
     </head>
     <body>
-        <h1>NAMMA KADAI - Cash Balance: Rs {{cash_balance}}</h1>
-        <table>
-            <thead>
-                <tr>
-                    <th>ITEM_ID</th>
-                    <th>ITEM_NAME</th>
-                    <th>QUANTITY</th>
-                    <th>ACTIONS</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for item in items %}
-                <tr>
-                    <td>{{ item.item_id }}</td>
-                    <td>{{ item.item_name }}</td>
-                    <td>{{ item.qty }}</td>
-                    <td>
-                        
-                        <form action="{{ url_for('updateitems', id=item.item_id) }}" >
-                            <button type="submit">UPDATE</button>
-                        </form>
-                        
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        <form action="{{url_for('additems')}}" >
-            <button >ADD ITEMS</button>
-        </form>
         
-        <form action="{{url_for('purchase')}}" >
-            <button>PURCHASE ITEMS</button>
-        </form>
-        <form action="{{url_for('sale')}}" >
-            <button >SALE ITEMS</button>
-        </form>
-        <form action="{{url_for('purchasetable')}}">
-            <button>PURCHASE TABLE</button>
-        </form>
-        <form action="{{url_for('salestable')}}"> 
-            <button>SOLD TABLE</button>
-        </form>
-
+        <div class="title-bar">
+            <h3>NAMMA KADDAII </h3>
+            <div class="button">
+                <form action="{{url_for('purchase')}}" >
+                    <button>PURCHASE ITEMS</button>
+                </form>
+                <form action="{{url_for('sale')}}" >
+                    <button >SALE ITEMS</button>
+                </form>
+                <form action="{{url_for('purchasetable')}}">
+                    <button>PURCHASED REPORT</button>
+                </form>
+                <form action="{{url_for('salestable')}}"> 
+                    <button>SOLD REPORT</button>
+                </form>
+            </div>
+        </div>
+        <div class="align">
+            <div class="card">
+                <h1>Cash Balance</h1>
+                <div class="balance-amount">Rs {{cash_balance}}</div>
+              </div>
+            <form action="{{url_for('additems')}}" >
+                <button class="btn">ADD ITEMS</button>
+            </form>
+            <div class="button">
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ITEM_ID</th>
+                            <th>ITEM_NAME</th>
+                            <th>QUANTITY</th>
+                            <th>ACTIONS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in items %}
+                        <tr>
+                            <td>{{ item.item_id }}</td>
+                            <td>{{ item.item_name }}</td>
+                            <td>{{ item.qty }}</td>
+                            <td>
+                                <form action="{{ url_for('updateitems', id=item.item_id) }}" >
+                                    <button class="btnn" type="submit">📝UPDATE</button>
+                                </form>
+                                
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                
+            </div>
+            
+        </div>
+        <footer style="text-align: center; padding: 10px; background-color: #f1f1f1;">
+            © {{ year }} Namma Kaddaii. All rights reserved.
+        </footer>
+        
     </body>
 </html>

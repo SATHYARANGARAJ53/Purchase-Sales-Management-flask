@@ -2,23 +2,8 @@
 <html>
     <head>
         <title>PURCHASED ITEMS DETAILS</title>
-        <style>
-            table,tr,th,td{
-                
-                padding:10px;
-                color:aliceblue;
-                border:1px solid black;
-            }
-            table{
-                width:80%;
-                margin:20px auto;
-                background-color: grey;
-            }
-            h1{
-                color: blueviolet;
-                text-align: center;
-            }
-        </style>
+        <link rel="stylesheet" href="static/purchasereport.css">
+        
     </head>
     <body>
         <h1>PURCHASED DETAILS</h1>
@@ -28,6 +13,7 @@
                     <th>Purchase_id</th>
                     <th>Timestamp</th>
                     <th>Item_id</th>
+                    <th>item_name</th>
                     <th>Quantity</th>
                     <th>Rate</th>
                     <th>Amount</th>
@@ -39,6 +25,7 @@
                     <td>{{ items.purchase_id}}</td>
                     <td>{{ items.timestamp }}</td>
                     <td>{{ items.item_id }}</td>
+                    <td>{{ items.item_name }}</td>
                     <td>{{ items.qty }}</td>
                     <td>{{ items.rate }}</td>
                     <td>{{ items.amount }}</td>
@@ -48,7 +35,7 @@
             </tbody>
         </table>
         <form method='POST'>
-            <button>BACK TO HOME</button>
+            <button>Home</button>
         </form>
     </body>
 </html>

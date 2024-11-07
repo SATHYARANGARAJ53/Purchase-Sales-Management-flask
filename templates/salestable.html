@@ -2,23 +2,8 @@
 <html>
     <head>
         <title>SOLD ITEMS DETAILS</title>
-        <style>
-            table{
-                
-                margin: 20px auto;
-                background-color: grey;
-                width:80%;
-            }
-            table,tr,th,td{
-                border: 1px solid black;
-                padding:10px;
-                color:aliceblue;
-            }
-            h1{
-                color: blueviolet;
-                text-align: center;
-            }
-        </style>
+        <link rel="stylesheet" href="static/soldreport.css">
+        
     </head>
     <body>
         <h1>SOLD ITEMS DETAILS</h1>
@@ -27,6 +12,7 @@
                 <th>Sales_id</th>
                 <th>Timestamp</th>
                 <th>Item_id</th>
+                <th>item_name</th>
                 <th>Quantity</th>
                 <th>Rate</th>
                 <th>Amount</th>
@@ -37,6 +23,7 @@
                     <td>{{ items.sales_id }}</td>
                     <td>{{ items.timestamp }}</td>
                     <td>{{ items.item_id }}</td>
+                    <td>{{items.item_name}}</td>
                     <td>{{ items.qty }}</td>
                     <td>{{ items.rate }}</td>
                     <td>{{ items.amount }}</td>
@@ -46,7 +33,7 @@
             
         </table>
         <form method='POST'>
-            <button>BACK TO HOME</button>
+            <button>Home</button>
         </form>
     </body>
 </html>
