@@ -108,10 +108,6 @@ Follow these steps to set up the project locally:
       ```bash
       .\venv\Scripts\activate
       ```
-    - **For macOS/Linux**:
-      ```bash
-      source venv/bin/activate
-      ```
 
 4. **Install Required Packages**:  
     After activating the virtual environment, install all necessary dependencies listed in the `requirements.txt` file.
