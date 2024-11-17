@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ADDITEMS</title>
+    <link rel="stylesheet" href="static/add_or_purchase_or_sale.css">
+    <!-- bootstrap icon -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Dashboard details-->
+    <div class="sidebar">
+        <h2>Namma Kadai</h2>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('additems') }}"
+            class="{% if current_path == url_for('additems') %}active{% endif %}">AddItems</a>
+        <a href="{{ url_for('purchase') }}">Purchase</a>
+        <a href="{{ url_for('sale') }}">Sales</a>
+        <a href="{{ url_for('reports')}}">Reports</a>
+    </div>
+
+    <!-- title bar -->
+    <div class="title-bar">
+        <h2>Add Items</h2>
+    </div>
+
+    <!-- current balance -->
+    <div class="balance-container">
+        <h3>Cash Balance</h3>
+        <div class="balance-amount">Rs {{company.cash_balance }}</div>
+    </div>
+
+    <!-- to display flash messages -->
+    <div id="flash-messages">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <p class="message {{ category }}">{{ message }}</p>
+                {% endfor %}
+            {% else %}
+                <p>No flash messages</p>
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <!-- form to add items -->
+    <form class="formcontainer" method="POST">
+        <label>Item Name :</label>
+        <input type="text" name="item_name" placeholder="Enter the Item Name" id="filter-input" onkeyup="filterTable()"
+            autocomplete="off" required><br>
+        <button type="submit">Add Item</button>
+    </form>
+
+    <!-- table with added items -->
+    <table id="items-table">
+        <thead>
+            <tr>
+                <th>Product_Name</th>
+                <th>In_Stock</th>
+                <th>Edit</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if no_items %}
+            <tr>
+                <td colspan="4" style="align-items: center;">No Products Added</td>
+            </tr>
+            {% else %}
+            {% for item in items %}
+            <tr>
+                <td>{{ item.item_name }}</td>
+                <td>{{ item.qty}}</td>
+                <td>
+                    <form action="{{ url_for('updateitems', id=item.item_id) }}" method="get"
+                        style="display: inline;margin-right: 10px;">
+                        <button type="submit" style="background: none; border: none; cursor: pointer; padding: 0;">
+                            <i class="bi bi-pencil-square" style="color: #4CAF50; font-size: 1.2rem;"></i>
+                            <!-- Update Icon -->
+                        </button>
+                    </form>
+                    <form action="{{ url_for('deleteitems', id=item.item_id) }}" method="post" style="display: inline;"
+                        onsubmit="return confirm('Are you sure you want to delete this item?');">
+                        <button type="submit" style="background: none; border: none; cursor: pointer; padding: 0;">
+                            <i class="bi bi-trash" style="color: #F44336; font-size: 1.2rem;"></i>
+                            <!-- Delete Icon -->
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+
+</html>

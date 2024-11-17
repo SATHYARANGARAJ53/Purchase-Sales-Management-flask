@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>NAMMA KADAI</title>
+    <link rel="stylesheet" href="static/home.css">
+</head>
+
+<body>
+    <!-- title bar -->
+    <div class="title-bar">
+        <h2>NAMMA KADAI </h2>
+    </div>
+
+    <!-- current balance -->
+    <div class="balance-container">
+        <h3>Cash Balance</h3>
+        <div class="balance-amount">Rs {{company.cash_balance }}</div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <!-- Card for ADD ITEMS -->
+            <a href="{{url_for('additems')}}" class="card action-card">
+                <h2>Add Items</h2>
+                <p>Access inventory to add new items.</p>
+            </a>
+
+            <!-- Card for PURCHASE ITEMS -->
+            <a href="{{ url_for('purchase')}}" class="card action-card">
+                <h2>Purchase Items</h2>
+                <p>Purchase items to update stock.</p>
+            </a>
+
+            <!-- Card for SALE ITEMS -->
+            <a href="{{url_for('sale')}}" class="card action-card">
+                <h2>Sale Items</h2>
+                <p>Sell items and update inventory.</p>
+            </a>
+
+            <!-- Card for OVERALL REPORTS -->
+            <a href="{{url_for('reports')}}" class="card action-card">
+                <h2>Overall Reports</h2>
+                <p>View details of all purchased and sold items.</p>
+            </a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        © {{ year }} Namma Kadai. All rights reserved.
+    </footer>
+</body>
+
+</html>

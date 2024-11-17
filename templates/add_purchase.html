@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PURCHASE</title>
+    <link rel="stylesheet" href="static/add_or_purchase_or_sale.css">
+</head>
+
+<body>
+    <!-- dashboard details -->
+    <div class="sidebar">
+        <h2>Namma Kadai</h2>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('additems') }}">Add Items</a>
+        <a href="{{ url_for('purchase') }}"
+            class="{% if current_path == url_for('purchase') %}active{% endif %}">Purchase</a>
+        <a href="{{ url_for('sale') }}">Sales</a>
+        <a href="{{ url_for('reports')}}">Reports</a>
+    </div>
+
+    <!-- current balance -->
+    <div class="balance-container">
+        <h3>Cash Balance</h3>
+        <div class="balance-amount">Rs {{company.cash_balance}}</div>
+    </div>
+
+    <!-- title bar -->
+    <div class="title-bar">
+        <h2>Purchase</h2>
+    </div>
+
+    <!-- to display flash messages -->
+    <div id="flash-messages">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+        {% for category, message in messages %}
+        <p class="message {{ category }}">{{ message }}</p>
+        {% endfor %}
+        {% else %}
+        <p>No flash messages</p>
+        {% endif %}
+        {% endwith %}
+    </div>
+
+    <!-- form to search and filter -->
+    <form class="formcontainer" method="POST">
+
+        <label>Search for an Items to Purchase :</label>
+        <input type="text" name="purchase_name" placeholder="Search for an Items to purchase" id="filter-input"
+            onkeyup="filterTable()" autocomplete="off" required><br>
+
+        <label>Filter Items to Purchase:</label>
+        <select id="filter-mode" onchange="filterItems()">
+            <option value="" aria-placeholder=""></option>
+            <option value="all">All Items</option>
+            <option value="selected">Selected Items</option>
+            <option value="not_selected">Not Selected Items</option>
+        </select>
+    </form>
+
+    <!-- table with added items to purchase -->
+    <form class="container" method="POST">
+        <table id="items-table">
+            <thead>
+                <tr>
+                    <th>Select</th>
+                    <th>Item Name</th>
+                    <th>Available Quantity</th>
+                    <th>Quantity</th>
+                    <th>Rate</th>
+                    <th>Total Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if no_items %}
+                <tr>
+                    <td colspan="6" style="align-items: center;">No Products Purchased</td>
+                </tr>
+                {% else %}
+                {% for item in items %}
+                <tr>
+                    <td>
+                        <input type="checkbox" name="selected_items[]" value="{{ item.item_id }}"
+                            onchange="toggleInputs(this)">
+                    </td>
+                    <td>{{ item.item_name }}</td>
+                    <td>{{ item.qty }}</td>
+                    <td>
+                        <input type="number" name="qty[]" required min="1" disabled
+                            oninput="calculateAmount(this.closest('tr'))">
+                    </td>
+                    <td>
+                        <input type="number" name="rate[]" required step="0.01" disabled
+                            oninput="calculateAmount(this.closest('tr'))">
+                    </td>
+                    <td class="amount">0.00</td>
+                </tr>
+                {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+
+        <div class="button-container">
+            <button type="submit">To Purchase</button>
+        </div>
+    </form>
+
+    <br><br>
+
+    <!-- purchase history -->
+    <h2>PURCHASED DETAILS</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Timestamp</th>
+                <th>Item_id</th>
+                <th>item_name</th>
+                <th>Quantity</th>
+                <th>Rate</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if no_purchase %}
+            <tr>
+                <td colspan="6" style="align-items: center;">No Products Purchased</td>
+            </tr>
+            {% else %}
+            {% for items in purchasedtable %}
+            <tr>
+                <td>{{ items.timestamp }}</td>
+                <td>{{ items.item_id }}</td>
+                <td>{{ items.item_name }}</td>
+                <td>{{ items.qty }}</td>
+                <td>{{ items.rate }}</td>
+                <td>{{ items.amount }}</td>
+            </tr>
+            {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Overall reports</title>
+    <link rel="stylesheet" href="static/reports.css">
+</head>
+
+<body>
+    <!-- Dashboard details -->
+    <div class="sidebar">
+        <h2>Namma Kadai</h2>
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('additems') }}">Add Items</a>
+        <a href="{{ url_for('purchase') }}">Purchase</a>
+        <a href="{{ url_for('sale') }}">Sales</a>
+        <a href="{{ url_for('reports')}}"
+            class="{% if current_path == url_for('reports') %}active{% endif %}">Reports</a>
+    </div>
+
+    <!-- title bar -->
+    <div class="title-bar">
+        <h2>Overall Reports</h2>
+    </div>
+
+    <!-- current balance -->
+    <div class="balance-container">
+        <h3>Cash Balance</h3>
+        <div class="balance-amount">Rs {{company.cash_balance}}</div>
+    </div>
+
+    <!-- overall details in reports list from dictonary stored init -->
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>In Stock</th>
+                    <th>Purchased Amount</th>
+                    <th>Sold Amount</th>
+                    <th>Profit/Loss</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if no_items %}
+                <tr>
+                    <td colspan="5" style="text-align: center;">No Items Purchased or Sold</td>
+                </tr>
+                {% else %}
+                {% for item in reports %}
+                <tr>
+                    <td>{{ item.item_name }}</td>
+                    <td class="{% if item['available_qty'] == 0 %}loss{% else %}profit{% endif %}">
+                        {%if item['available_qty'] == 0 %}
+                        {{ item['available_qty'] }}
+                        {% else %}
+                        {{ item['available_qty'] }}
+                        {% endif %}
+
+                    </td>
+                    <td class="{% if item['total_purchased_amount'] == 0 %} zero{% endif %}">
+                        {% if item['total_purchased_amount']==0 %}
+                        -
+                        {% else %}
+                        Rs: {{item['total_purchased_amount']}}
+                        {% endif %}
+                    </td>
+                    <td class="{% if item['total_sold_amount'] == 0 %} zero{% endif %}">
+                        {% if item['total_sold_amount']==0 %}
+                        -
+                        {% else %}
+                        Rs: {{item['total_sold_amount']}}
+                        {% endif %}
+                    </td>
+                    <td
+                        class="{% if item['profit_or_loss'] < 0 %}loss {% elif item['profit_or_loss'] == 0 %} zero {% else %}profit{% endif %}">
+                        {% if item['profit_or_loss'] < 0 %} Rs {{ item['profit_or_loss'] | round(2) }} {% elif
+                            item['profit_or_loss']==0 %} - {% else %} Rs {{ item['profit_or_loss'] | round(2) }} {%endif
+                            %} </td>
+                </tr>
+                {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+/* title bar */
+.title-bar h2 {
+    margin: 10px;
+    text-align: center;
+    color: deeppink;
+    font-family: Arial, sans-serif;
+}
+
+.title-bar {
+    display: block;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    font-size: 24px;
+    position: fixed;
+    margin-top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 30%;
+    background-color: rgb(33, 31, 31);
+
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+/* cash balance */
+.balance-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 15px;
+    background-color: rgb(33, 31, 31);
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 40px;
+    right: 50px;
+}
+
+.balance-container h3 {
+    margin: 0;
+    padding-right: 10px;
+}
+
+.balance-amount {
+    font-size: 24px;
+    color: #28a745;
+}
+
+/* to display cards */
+.container {
+    padding-top: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.card {
+    display: block;
+    width: 250px;
+    height: 125px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    text-align: center;
+    background-color: rgb(33, 31, 31);
+    transition: transform 0.3s;
+    align-items: center;
+    text-decoration: none;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.action-card {
+    background-color: rgb(33, 31, 31);
+}
+
+h2 {
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+p {
+    font-size: 14px;
+    color: white;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    max-width: 910px;
+}
+
+.footer {
+    text-align: center;
+    color: white;
+    padding: 10px;
+    background-color: rgb(33, 31, 31);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
