@@ -17,7 +17,7 @@ The **Purchase/Sales Management App** is a robust and user-friendly web applicat
 
 ## 🖼️Application Screenshots
 
-### HomePage:
+### 01.HomePage:
 ![Screenshot 2024-11-17 141435](https://github.com/user-attachments/assets/0bada802-b8d4-4748-94b7-564c2fb8a267)
 
 **Overview**:  
@@ -31,12 +31,12 @@ The home page serves as the central hub for navigating the application. It offer
   3. **Sale Items**: For selling items and updating inventory.
   4. **Overall Reports**: Access detailed reports on purchases and sales.
 
- ### Add/View Products Page:
+ ### 02.Add/View Products Page:
  ![Screenshot 2024-11-17 142931](https://github.com/user-attachments/assets/2838b424-214f-4327-ae45-d7abdf9a2bdb)
 
 This page allows users to add new products to the inventory by entering the item name. It displays a list of existing products with their current stock levels and options to edit or delete them. The current cash balance is prominently shown on the top right for easy tracking. The left sidebar provides navigation to key sections: Home, Add Items, Purchase, Sales, and Reports.
 
- ### Purchase Page:
+ ### 03.Purchase Page:
  ![Screenshot 2024-11-17 145206](https://github.com/user-attachments/assets/62aa8103-4459-4ecd-a817-cce20600c768)
  ![Screenshot 2024-11-17 153432](https://github.com/user-attachments/assets/5e36e56b-0870-4b84-820a-d57bbe319be1)
 
@@ -50,7 +50,7 @@ The **Purchase** page enables users to:
 - **Cash balance** Updates are shown at the top right for quick tracking.
 - **Scroll for Purchase History:** At the bottom of the page, view a detailed table of past purchases to track previous transactions.
 
-### Sales Page:
+### 04.Sales Page:
 ![Screenshot (361)](https://github.com/user-attachments/assets/498e99b1-f9a1-409d-9ef9-13c13107d9e4)
 ![Screenshot 2024-11-17 153602](https://github.com/user-attachments/assets/bac9598f-0cf5-4591-bbd3-1dc9d819b200)
 
@@ -64,7 +64,7 @@ The **Purchase** page enables users to:
 - **Scroll for Purchase History:** At the bottom of the page, view a detailed table of past purchases to track previous transactions.
 The left sidebar provides easy navigation to other sections like Home, Add Items, Purchase, Sales, and Reports.
 
-### Overall Reports
+### 05.Overall Reports
 ![Screenshot 2024-11-17 152400](https://github.com/user-attachments/assets/70def4b8-bef1-42ad-b636-ad08f258670a)
 
 This page provides a comprehensive summary of all transactions, including purchases and sales, highlighting the profit or loss for each item.
@@ -74,6 +74,51 @@ This page provides a comprehensive summary of all transactions, including purcha
   - Sold Amount: Revenue generated from sales.
   - Profit/Loss: Indicates the net profit (in green) or loss (in red) for each item.
 - **Cash Balance**: Current cash balance is prominently displayed at the top right for easy reference.
+
+  
+## ⚙️ Setup and Installation
+
+Follow these steps to set up the project locally:
+
+### Prerequisites
+- **Python 3.x**  
+- **Flask**: Install Flask by running:  
+  ```bash
+  pip install flask
+  ```  
+- **SQLite**: Required for database management.
+
+### Installation
+
+1. **Clone the Repository**:  
+    Clone the project repository to your local machine.
+    ```bash
+    git clone https://github.com/yourusername/Flask-Inventory-Management-App.git
+    cd Flask-Inventory-Management-App
+    ```
+
+2. **Install Required Packages**:  
+    Install all necessary dependencies listed in the `requirements.txt` file.
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3. **Initialize Database**:  
+    Set up the SQLite database by running the following command:  
+    ```bash
+    python initialize_db.py
+    ```  
+    This will create the necessary tables for storing item data, purchase and sales history, and cash balance.
+
+4. **Run the Application**:  
+    Start the Flask application.
+    ```bash
+    flask run
+    ```
+
+5. **Access the Application**:  
+    Open the application in your browser at:  
+    [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
 
 ## 🚀 Key Features
