@@ -93,23 +93,39 @@ Follow these steps to set up the project locally:
 1. **Clone the Repository**:  
     Clone the project repository to your local machine.
     ```bash
-    git clone git clone https://github.com/SATHYARANGARAJ53/Purchase-Sales-Management-flask.git
+    git clone https://github.com/SATHYARANGARAJ53/Purchase-Sales-Management-flask.git
     cd Purchase-Sales-Management-flask
     ```
 
-2. **Install Required Packages**:  
-    Install all necessary dependencies listed in the `requirements.txt` file.
+2. **Create a Virtual Environment (Optional but Recommended)**:  
+    It's a good practice to create a virtual environment to manage project-specific dependencies.
+    ```bash
+    python -m venv venv
+    ```
+
+3. **Activate the Virtual Environment**:  
+    - **For Windows**:
+      ```bash
+      .\venv\Scripts\activate
+      ```
+    - **For macOS/Linux**:
+      ```bash
+      source venv/bin/activate
+      ```
+
+4. **Install Required Packages**:  
+    After activating the virtual environment, install all necessary dependencies listed in the `requirements.txt` file.
     ```bash
     pip install -r requirements.txt
     ```
 
-3. **Run the Application**:  
+5. **Run the Application**:  
     Start the Flask application.
     ```bash
     flask run
     ```
-    
-4. **Access the Application**:  
+
+6. **Access the Application**:  
     Open the application in your browser at:  
     [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
