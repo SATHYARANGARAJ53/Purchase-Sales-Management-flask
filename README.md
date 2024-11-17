@@ -4,6 +4,17 @@
 
 The **Purchase/Sales Management App** is a robust and user-friendly web application designed to streamline inventory and financial management for small businesses. Built using Flask, this application offers an intuitive platform for tracking stock levels, managing purchases, processing sales, and maintaining an up-to-date cash balance—all in real-time.
 
+## 🛠️ Technology Stack
+
+- **Backend**: Flask (Python)  
+  - Utilized Flask to create RESTful APIs and handle backend operations.  
+
+- **Frontend**: HTML, CSS, JavaScript  
+  - Designed an interactive and responsive user interface for seamless user experience.  
+
+- **Database**: SQLite (via SQLAlchemy)  
+  - Used SQLAlchemy as the Object Relational Mapper (ORM) for efficient database operations.  
+
 ## 🖼️Application Screenshots
 
 ### HomePage:
@@ -27,9 +38,10 @@ This page allows users to add new products to the inventory by entering the item
 
  ### Purchase Page:
  ![Screenshot 2024-11-17 145206](https://github.com/user-attachments/assets/62aa8103-4459-4ecd-a817-cce20600c768)
+ ![Screenshot 2024-11-17 153432](https://github.com/user-attachments/assets/5e36e56b-0870-4b84-820a-d57bbe319be1)
 
 The **Purchase** page enables users to:
-- **Search for Items:** Quickly find specific items to purchase using the search box.
+- **Items Search:** Quickly find specific items to purchase using the search box.
 - **Filter Options:** Display the product table based on:
   - All items
   - Selected items
@@ -40,6 +52,7 @@ The **Purchase** page enables users to:
 
 ### Sales Page:
 ![Screenshot (361)](https://github.com/user-attachments/assets/498e99b1-f9a1-409d-9ef9-13c13107d9e4)
+![Screenshot 2024-11-17 153602](https://github.com/user-attachments/assets/bac9598f-0cf5-4591-bbd3-1dc9d819b200)
 
   This page allows users to manage item sales efficiently. Key features include:
 - **Search and Filter**: Users can search for items to sell using the provided search bar or filter dropdown.
