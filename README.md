@@ -93,8 +93,8 @@ Follow these steps to set up the project locally:
 1. **Clone the Repository**:  
     Clone the project repository to your local machine.
     ```bash
-    git clone https://github.com/yourusername/Flask-Inventory-Management-App.git
-    cd Flask-Inventory-Management-App
+    git clone git clone https://github.com/SATHYARANGARAJ53/Purchase-Sales-Management-flask.git
+    cd Purchase-Sales-Management-flask
     ```
 
 2. **Install Required Packages**:  
@@ -103,20 +103,13 @@ Follow these steps to set up the project locally:
     pip install -r requirements.txt
     ```
 
-3. **Initialize Database**:  
-    Set up the SQLite database by running the following command:  
-    ```bash
-    python initialize_db.py
-    ```  
-    This will create the necessary tables for storing item data, purchase and sales history, and cash balance.
-
-4. **Run the Application**:  
+3. **Run the Application**:  
     Start the Flask application.
     ```bash
     flask run
     ```
-
-5. **Access the Application**:  
+    
+4. **Access the Application**:  
     Open the application in your browser at:  
     [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
